@@ -1,8 +1,11 @@
+import django
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField, TextField
 from django.utils.text import slugify
+from django.contrib.auth.models import User
+
 
 
 JOB_TYPE = (
@@ -12,10 +15,11 @@ JOB_TYPE = (
 
 def image_upload(instance,filename):
     imagename , extension = filename.split(".")
-    return "jobs/%s.%s"%(instance.id,extension)
+    return "jobs/%s.%s"%(instance.pk,extension)
 
 # Create your models here.
 class Job(models.Model):
+    owner = models.ForeignKey(User,related_name='job_owner',on_delete=models.CASCADE)
     title = models.CharField(max_length=100) #colum
     # location
     job_type = models.CharField(max_length=60,choices=JOB_TYPE)
