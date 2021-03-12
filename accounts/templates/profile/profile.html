@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{%block title%} {{job.title}} {%endblock%}
+
+{% block body %}
+
+
+    
+
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3> {{job.title}} </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="job_sumary">
+                    <div class="summery_header">
+                        <h3>
+                            <strong class="text-success">  Profile Summary </strong> 
+                        </h3>
+                    </div>
+                    <div class="job_content">
+                        <ul>
+                            <li>Name :  <span> <strong>{{profile.user}}</strong>  </span></li>
+                            <li>City : <span> <strong>{{profile.city}}</strong>  </span></li>
+                            <li>Phone: <span> <strong>{{profile.phone_number}}</strong> </span></li>
+                            <li>Email: <span> <strong>{{profile.user.email}}</strong> </span></li>
+                            
+                        </ul><br>
+                        <a href="{%url  'accounts:edit' %}" class="boxed-btn3 w-100"> Edit</a>
+                    </div>
+                </div>
+                <div class="share_wrap d-flex">
+                    <span>Share at:</span>
+                    <ul>
+                        <li><a href="#"> <i class="fa fa-facebook"></i></a> </li>
+                        <li><a href="#"> <i class="fa fa-google-plus"></i></a> </li>
+                        <li><a href="#"> <i class="fa fa-twitter"></i></a> </li>
+                        <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+{% endblock body %}
+    
+
+    
+   
